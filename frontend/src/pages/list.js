@@ -1,14 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  Icon,
-  Typography,
-} from "@material-ui/core"
+import { List, Typography } from "@material-ui/core"
+
+import Device from "./list/device"
 
 class Overview extends Component {
   componentWillMount = () => {
@@ -24,36 +19,12 @@ class Overview extends Component {
         </Typography>
         <List dense>
           {this.props.devices.devices.map((device, i) => (
-            <Device
-              key={`device-list-${i}`}
-              device={device}
-              add={this.props.add}
-              remove={this.props.remove}
-              hover={this.props.devices.hover}
-            />
+            <Device key={`device-list-${i}`} device={device} />
           ))}
         </List>
       </div>
     ) : null
 }
-
-const Device = ({ device, add, remove, hover }) => (
-  <ListItem
-    onMouseEnter={() => add(device.callsign)}
-    onMouseLeave={() => remove(device.callsign)}
-    style={{
-      backgroundColor: hover.includes(device.callsign) ? "#ddd" : "#fff",
-    }}
-  >
-    <ListItemIcon>
-      <Icon>gps_fixed</Icon>
-    </ListItemIcon>
-    <ListItemText
-      primary={device.callsign}
-      secondary={`${device.lat}, ${device.lon}`}
-    />
-  </ListItem>
-)
 
 const mapState = ({ devices, gps }) => ({ devices, gps })
 

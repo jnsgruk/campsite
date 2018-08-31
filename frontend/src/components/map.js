@@ -11,7 +11,6 @@ import {
 import CustomMarker from "./map/custom-marker"
 
 class Map extends Component {
-  state = { showLabels: false }
   render = () => {
     const { lat, lon, markers } = this.props
 

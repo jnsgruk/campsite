@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core"
 
 class CustomMarker extends Component {
   render = () => {
-    const { device, devices } = this.props
+    const { device, devices, add, remove } = this.props
     const { hover } = devices
     return (
       <Marker
@@ -14,8 +14,8 @@ class CustomMarker extends Component {
           "http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png"
         }
         position={{ lat: device.lat, lng: device.lon }}
-        onMouseOver={() => this.props.add(device.callsign)}
-        onMouseOut={() => this.props.remove(device.callsign)}
+        onMouseOver={() => add(device.callsign)}
+        onMouseOut={() => remove(device.callsign)}
       >
         {hover.includes(device.callsign) && (
           <InfoWindow>
