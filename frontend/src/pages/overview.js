@@ -8,8 +8,9 @@ class Overview extends Component {
     this.props.initGPS()
   }
 
-  render = () =>
-    Object.keys(this.props.gps).length ? (
+  render = () => {
+    return Object.keys(this.props.gps).length &&
+      Object.keys(this.props.devices).length ? (
       <Map
         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDLtmMaLICUV7l6OfIl9rW2vdsXXc31s4M&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: "100%" }} />}
@@ -18,10 +19,11 @@ class Overview extends Component {
         lat={this.props.gps.lat}
         lon={this.props.gps.lon}
         markers={
-          Object.keys(this.props.devices).length ? this.props.devices : null
+          this.props.devices.devices.length ? this.props.devices.devices : null
         }
       />
     ) : null
+  }
 }
 
 const mapState = ({ devices, gps }) => ({ devices, gps })
