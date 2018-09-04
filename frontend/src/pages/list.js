@@ -18,9 +18,11 @@ class Overview extends Component {
           Devices
         </Typography>
         <List dense>
-          {this.props.devices.devices.map((device, i) => (
-            <Device key={`device-list-${i}`} device={device} />
-          ))}
+          {this.props.devices.devices
+            .sort((a, b) => a.callsign > b.callsign)
+            .map((device, i) => (
+              <Device key={`device-list-${i}`} device={device} />
+            ))}
         </List>
       </div>
     ) : null
