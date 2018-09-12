@@ -1,6 +1,6 @@
 ### Campsite
 
-Campsite is a situational-awareness/device tracking tool. It is designed to maintain an up to date picture of where Caravan and other boxes are deployed. There is a simple [client](https://k.jon0.co.uk/jon/campsite-client) written in NodeJS, but is equally easy to integrate into existing projects through its REST API, described below.
+Campsite is a device tracking tool. There is a simple [client](https://github.com/jnsgruk/campsite-client) written in NodeJS, but is equally easy to integrate into existing projects through its REST API, described below.
 
 #### Running the project
 
@@ -27,7 +27,7 @@ Simple GET endpoint thar returns a list of devices. Example:
 ```json
 [
   {
-    "callsign": "Sensor 1",
+    "callsign": "Device 1",
     "lat": 52.1764,
     "lon": -0.2345,
     "timestamp": 1536070108
@@ -41,7 +41,7 @@ POST endpoint for populating a new device in the tracker. Messages with the same
 
 ```json
 {
-  "callsign": "Sensor 1",
+  "callsign": "Device 1",
   "lat": 52.1764,
   "lon": -0.2345,
   "timestamp": 1536070108
@@ -58,7 +58,7 @@ request
   .post({
     uri: "http://localhost:5000/device",
     body: {
-      callsign: "Sensor 1",
+      callsign: "Device 1",
       lat: 52.3456,
       lon: -0.2134,
       timestamp: 1536070108,
