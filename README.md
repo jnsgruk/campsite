@@ -5,15 +5,17 @@ Campsite is a device tracking tool. There is a simple [client](https://github.co
 #### Running the project
 
 ```bash
-git clone git@k.jon0.co.uk:jon/campsite.git
+git clone git@github.com:jnsgruk/campsite.git
 cd campsite/
 cd backend/
-npm run dev # this will run the project in nodemon
+yarn # install deps
+yarn run dev # this will run the project in nodemon
 
 # Open a new tab
 
 cd frontend
-npm start
+yarn # install deps
+yarn start
 ```
 
 Now browse to [http://localhost:3000](http://localhost:3000)
