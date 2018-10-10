@@ -11,7 +11,7 @@ class CustomMarker extends Component {
     return (
       <Marker
         icon={
-          "http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png"
+          "https://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png"
         }
         position={{ lat: device.lat, lng: device.lon }}
         onMouseOver={() => add(device.callsign)}
