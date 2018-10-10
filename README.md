@@ -8,7 +8,7 @@ This method will install Campsite into `/opt/campsite` and create a systemd unit
 
 NOTE: The install script will overwrite `/etc/nginx/sites-enabled/default`!
 
-First, obtain a release zip file. This can be downloaded from the (Releases Page)[https://github.com/jnsgruk/campsite/releases] or built from the command line:
+First, obtain a release zip file. This can be downloaded from the [Releases Page](https://github.com/jnsgruk/campsite/releases) or built from the command line:
 
 ```
 $ git clone https://github.com/jnsgruk/campsite
