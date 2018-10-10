@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "./scripts/dev.sh"
+    "dev": "./scripts/dev.sh",
+    "rollup": "./node_modules/.bin/rollup -c"
   },
   "author": "",
   "license": "ISC",
@@ -17,13 +18,18 @@
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
-    "nodemon": "^1.17.4"
+    "nodemon": "^1.17.4",
+    "rollup": "^0.66.5",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-terser": "^3.0.0",
+    "terser": "^3.10.0"
   },
   "babel": {
     "presets": [

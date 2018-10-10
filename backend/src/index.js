@@ -35,7 +35,7 @@ app.all("*", function(req, res, next) {
   next()
 })
 
-app.post("/device", (req, res) => {
+app.post("/api/device", (req, res) => {
   let device = req.body
   const index = devices.findIndex(d => d.callsign === device.callsign)
   if (index > -1) {
@@ -48,10 +48,10 @@ app.post("/device", (req, res) => {
   res.send(devices)
 })
 
-app.get("/devices", (req, res) => {
+app.get("/api/devices", (req, res) => {
   res.send(JSON.stringify(devices))
 })
 
-app.get("/gps", (req, res) => {
+app.get("/api/gps", (req, res) => {
   res.send(JSON.stringify(gps.info()))
 })
