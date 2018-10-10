@@ -1,18 +1,17 @@
 #!/bin/bash
 CAMPSITE_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-apt install nodejs nginx-full
-
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt install nodejs nginx-full yarn install yarn
 
 cd $CAMPSITE_DIR/frontend
 yarn
 yarn run build
 
 # Generate OpenSSL self-signed certificate for frontend
+mkdir -p /etc/nginx/ssl
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=campsite/L=campsite/O=campsite/CN=campsite" -keyout /etc/nginx/ssl/key.pem  -out /etc/nginx/ssl/cert.pem
 
 tee /etc/nginx/sites-enabled/default <<-EOF
@@ -72,6 +71,7 @@ cp -r ./frontend/build /opt/campsite/frontend
 cp ./backend/build/campsite.js /opt/campsite/campsite.js
 cp ./backend/package.json /opt/campsite/package.json
 cd /opt/campsite
+chmod o+x campsite.js
 NODE_ENV=production yarn
 
 tee /etc/systemd/system/campsite.service <<-EOF
