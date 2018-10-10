@@ -1,6 +1,5 @@
 import io from "socket.io-client"
-import axios from "axios"
-const ENDPOINT = `http://${window.location.hostname}:5000`
+import { ENDPOINT, c_axios as axios } from "../components/helpers"
 const socket = io(`${ENDPOINT}/devices`)
 
 const devices = {
@@ -31,7 +30,7 @@ const devices = {
   },
   effects: {
     async fetchDevices() {
-      const res = await axios.get(`${ENDPOINT}/devices`)
+      const res = await axios.get(`${ENDPOINT}/api/devices`)
       this.update(res.data)
     },
     async init() {

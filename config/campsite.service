@@ -1,0 +1,14 @@
+[Unit]
+Description=Campsite
+ConditionPathExists=/opt/campsite/campsite.js
+After=network.target auditd.service
+
+[Service]
+User=root
+WorkingDirectory=/opt/campsite
+Environment="NODE_ENV=production"
+ExecStart=/opt/campsite/campsite.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
