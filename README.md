@@ -2,7 +2,27 @@
 
 Campsite is a device tracking tool. There is a simple [client](https://github.com/jnsgruk/campsite-client) written in NodeJS, but is equally easy to integrate into existing projects through its REST API, described below.
 
-#### Running the project
+### Installing in production with systemd unit
+
+This method will install Campsite into `/opt/campsite` and create a systemd unit called `campsite`. It will also install an nginx config to server up the frontend.
+
+NOTE: The install script will overwrite `/etc/nginx/sites-enabled/default`!
+
+First, obtain a release zip file. This can be downloaded from the (Releases Page)[https://github.com/jnsgruk/campsite/releases] or built from the command line:
+
+```
+$ git clone https://github.com/jnsgruk/campsite
+$ cd campsite/
+$ ./build-release.sh
+```
+
+Once you have a release zip, copy it onto the server device and run:
+
+````
+$ unzip campsite.zip && sudo ./campsite/install.sh
+
+
+#### Running the project (Development Mode)
 
 ```bash
 git clone git@github.com:jnsgruk/campsite.git
@@ -16,7 +36,7 @@ yarn run dev # this will run the project in nodemon
 cd frontend
 yarn # install deps
 yarn start
-```
+````
 
 Now browse to [http://localhost:3000](http://localhost:3000)
 
