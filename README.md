@@ -18,9 +18,9 @@ $ ./build-release.sh
 
 Once you have a release zip, copy it onto the server device and run:
 
-````
+```
 $ unzip campsite.zip && sudo ./campsite/install.sh
-
+```
 
 #### Running the project (Development Mode)
 
@@ -36,7 +36,7 @@ yarn run dev # this will run the project in nodemon
 cd frontend
 yarn # install deps
 yarn start
-````
+```
 
 Now browse to [http://localhost:3000](http://localhost:3000)
 
