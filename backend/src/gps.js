@@ -14,11 +14,12 @@ class GPS {
       path: "",
     }
 
-    this.listener = new Listener()
-
-    this.listener.on("TPV", t => (this.tpv = { ...this.tpv, ...t }))
-    this.listener.on("DEVICE", d => (this.device = { ...this.device, ...d }))
-    this.listener.connect(() => this.listener.watch())
+    if (!this.fakeOut) {
+      this.listener = new Listener()
+      this.listener.on("TPV", t => (this.tpv = { ...this.tpv, ...t }))
+      this.listener.on("DEVICE", d => (this.device = { ...this.device, ...d }))
+      this.listener.connect(() => this.listener.watch())
+    }
   }
 
   init = io => {
